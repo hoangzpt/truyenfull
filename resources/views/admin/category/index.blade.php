@@ -33,7 +33,7 @@
 
                                 @foreach ($categories as $key => $category)
                                     <tr>
-                                        <th scope="row">{{ $key }}</th>
+                                        <th scope="row">{{ $category->id }}</th>
                                         <td>{{ $category->name }}</td>
                                         <td>{{ $category->slug_category }}</td>
                                         <td>{{ $category->describe }}</td>

@@ -31,25 +31,20 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/truyenfull">Home</a>
+                                <a class="nav-link active" aria-current="page" href="/truyenfull">Trang chủ</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
+
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Dropdown
+                                    Thể loại
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                    @foreach($categories as $key => $category)
+                                        <li><a class="dropdown-item" href="{{ url('novel-category/' . $category->slug_category) }}">{{ $category->name }}</a></li>
+                                    @endforeach
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                            </li>
+
                         </ul>
                         <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -59,115 +54,10 @@
                 </div>
             </nav>
             <!-- --------------------------------Slide--------------------------------------- -->
-            <h3>Top truyện hay</h3>
-            <div class="owl-carousel owl-theme mt-5">
-                <div class="item">
-                    <img src="{{ asset('public/uploads/novel/linh-vu-thien-ha39.jpg') }}" alt="">
-                    <h3>Linh vũ thiên hạ</h3>
-                    <p><i class="fa-regular fa-eye"></i> 60000 </p>
-                </div>
-                <div class="item">
-                    <img src="{{ asset('public/uploads/novel/linh-vu-thien-ha39.jpg') }}" alt="">
-                    <h3>Linh vũ thiên hạ</h3>
-                    <p><i class="fa-regular fa-eye"></i> 60000 </p>
-                </div>
-                <div class="item">
-                    <img src="{{ asset('public/uploads/novel/linh-vu-thien-ha39.jpg') }}" alt="">
-                    <h3>Linh vũ thiên hạ</h3>
-                    <p><i class="fa-regular fa-eye"></i> 60000 </p>
-                </div>
-                <div class="item">
-                    <img src="{{ asset('public/uploads/novel/linh-vu-thien-ha39.jpg') }}" alt="">
-                    <h3>Linh vũ thiên hạ</h3>
-                    <p><i class="fa-regular fa-eye"></i> 60000 </p>
-                </div>
-                <div class="item">
-                    <img src="{{ asset('public/uploads/novel/linh-vu-thien-ha39.jpg') }}" alt="">
-                    <h3>Linh vũ thiên hạ</h3>
-                    <p><i class="fa-regular fa-eye"></i> 60000 </p>
-                </div>
-
-
-            </div>
+            @yield('slide')
             <!-- --------------------------------Truyen moi--------------------------------------- -->
-            <h3>Truyện mới cập nhất</h3>
-            <div class="album py-5 bg-light">
-                <div class="container">
-
-                    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                        <div class="col">
-                            <div class="card shadow-sm">
-{{--                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>--}}
-                                <img style="height: 300px; width: 100%;" class="bd-placeholder-img card-img-top img-thumbnail" src="{{ asset('public/uploads/novel/linh-vu-thien-ha39.jpg') }}" alt="">
-                                <div class="card-body">
-                                    <h3>Tên truyện</h3>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a href="" class="btn btn-sm btn-primary">Đọc</a>
-                                            <a href="" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-eye"></i> 60000 </a>
-                                        </div>
-                                        <small class="text-muted">9 mins ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                {{--                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>--}}
-                                <img style="height: 300px; width: 100%;" class="bd-placeholder-img card-img-top img-thumbnail" src="{{ asset('public/uploads/novel/linh-vu-thien-ha39.jpg') }}" alt="">
-                                <div class="card-body">
-                                    <h3>Tên truyện</h3>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a href="" class="btn btn-sm btn-primary">Đọc</a>
-                                            <a href="" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-eye"></i> 60000 </a>
-                                        </div>
-                                        <small class="text-muted">9 mins ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                {{--                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>--}}
-                                <img style="height: 300px; width: 100%;" class="bd-placeholder-img card-img-top img-thumbnail" src="{{ asset('public/uploads/novel/linh-vu-thien-ha39.jpg') }}" alt="">
-                                <div class="card-body">
-                                    <h3>Tên truyện</h3>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a href="" class="btn btn-sm btn-primary">Đọc</a>
-                                            <a href="" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-eye"></i> 60000 </a>
-                                        </div>
-                                        <small class="text-muted">9 mins ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card shadow-sm">
-                                {{--                                <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>--}}
-                                <img style="height: 300px; width: 100%;" class="bd-placeholder-img card-img-top img-thumbnail" src="{{ asset('public/uploads/novel/linh-vu-thien-ha39.jpg') }}" alt="">
-                                <div class="card-body">
-                                    <h3>Tên truyện</h3>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a href="" class="btn btn-sm btn-primary">Đọc</a>
-                                            <a href="" class="btn btn-sm btn-outline-secondary"><i class="fa-regular fa-eye"></i> 60000 </a>
-                                        </div>
-                                        <small class="text-muted">9 mins ago</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <a class="mt-2 btn btn-success btn-sm" href="">Xem thêm</a>
-                </div>
-            </div>
+            @yield('content')
+            <!-- --------------------------------Footer--------------------------------------- -->
             <footer class="text-muted py-5">
                 <div class="container">
                     <p class="float-end mb-1">

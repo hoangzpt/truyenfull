@@ -41,6 +41,7 @@ class NovelController extends Controller
         $data = $request->validate(
             [
                 'name' => 'required|unique:novel|max:255',
+                'author' => 'required|unique:novel|max:255',
                 'slug_novel' => 'required|unique:novel|max:255',
                 'describe' => 'required',
                 'status' => 'required',
@@ -53,6 +54,7 @@ class NovelController extends Controller
                 'name.unique' => 'Tên truyện đã tồn tại',
                 'slug_novel.unique' => 'Slug truyện đã tồn tại',
                 'name.required' => 'Bạn phải điền tên truyện',
+                'author.required' => 'Bạn phải điền tên tác giả',
                 'slug_novel.required' => 'Bạn phải điền slug_truyện',
                 'describe.required' => 'Bạn phải điền mô tả truyện',
                 'image.required' => 'Phải thêm hình ảnh',
@@ -61,11 +63,12 @@ class NovelController extends Controller
 
         $novel = new Novel();
         $novel->name = $data['name'];
+        $novel->author = $data['author'];
         $novel->slug_novel = $data['slug_novel'];
         $novel->describe = $data['describe'];
         $novel->status = $data['status'];
         $novel->category_id = $data['category'];
-        
+
         //Thêm ảnh vào folder
         $get_image = $request->image;
         $path = 'public/uploads/novel/';
@@ -115,30 +118,32 @@ class NovelController extends Controller
         $data = $request->validate(
             [
                 'name' => 'required|max:255',
+                'author' => 'required|max:255',
                 'slug_novel' => 'required|max:255',
                 'describe' => 'required',
                 'status' => 'required',
-                
                 'category' => 'required',
             ],
             [
                 // Sửa lại thông báo validate
-                
+
                 'name.required' => 'Bạn phải điền tên truyện',
+                'author.required' => 'Bạn phải điền tên tác giả',
                 'slug_novel.required' => 'Bạn phải điền slug_truyện',
                 'describe.required' => 'Bạn phải điền mô tả truyện',
-                
+
             ]
         );
 
         $novel = Novel::find($id);
         $novel->name = $data['name'];
+        $novel->author = $data['author'];
         $novel->slug_novel = $data['slug_novel'];
         $novel->describe = $data['describe'];
         $novel->status = $data['status'];
         $novel->category_id = $data['category'];
-        
-        //Thêm ảnh 
+
+        //Thêm ảnh
         $get_image = $request->image;
         if ($get_image) {
             $path = 'public/uploads/novel/' . $novel->image;

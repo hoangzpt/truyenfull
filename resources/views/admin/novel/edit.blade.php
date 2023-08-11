@@ -33,6 +33,11 @@
                                     onkeyup="ChangeToSlug()" placeholder="Tên truyện" id="slug">
                             </div>
                             <div class="mb-3">
+                                <label class="form-label">Tác giả</label>
+                                <input type="text" value="{{ $novel->author }}" class="form-control" name="author"
+                                       onkeyup="ChangeToSlug()" placeholder="Tên tác giả" id="slug">
+                            </div>
+                            <div class="mb-3">
                                 <label class="form-label">Slug truyện</label>
                                 <input type="text" value="{{ $novel->slug_novel }}" class="form-control" name="slug_novel"
                                     readonly placeholder="Slug truyện" id="convert_slug">
@@ -64,7 +69,7 @@
                                         <option value="0">Kích hoạt</option>
                                         <option selected value="1">Không kích hoạt</option>
                                     @endif
-                                    
+
                                 </select>
                             </div>
 

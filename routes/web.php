@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\NovelController;
 use App\Http\Controllers\ChapterController;
+use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,11 @@ use App\Http\Controllers\ChapterController;
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
-});
+Route::get('/', [IndexController::class, 'home']);
+Route::get('/read/{id}', [IndexController::class, 'read'])->name('read');
+Route::get('/novel-category/{slug}', [IndexController::class, 'novel_category'])->name('novel-category');
+Route::get('/read-chapter/{slug}', [IndexController::class, 'read_chapter'])->name('read-chapter');
+
 
 Auth::routes();
 

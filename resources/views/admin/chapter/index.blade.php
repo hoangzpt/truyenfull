@@ -35,6 +35,7 @@
                                         <td>{{ $chapter->title }}</td>
                                         <td>{{ $chapter->slug_chapter }}</td>
                                         <td>{{ $chapter->describe }}</td>
+                                        <td>{{ $chapter->novel->name }}</td>
                                         <td>
                                             @if ($chapter->status == 0)
                                                 <span class="text text-success">Kích hoạt</span>

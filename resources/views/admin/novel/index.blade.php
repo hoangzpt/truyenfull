@@ -21,9 +21,10 @@
                                 <tr>
                                     <th scope="col">#</th>
                                     <th scope="col">Tên truyện</th>
+                                    <th scope="col">Tác giả</th>
                                     <th scope="col">Hình ảnh</th>
                                     <th scope="col">Slug truyện</th>
-                            
+
                                     <th scope="col">Danh mục</th>
                                     <th scope="col">Trạng thái</th>
                                     <th scope="col"></th>
@@ -35,9 +36,10 @@
                                     <tr>
                                         <th scope="row">{{ $key }}</th>
                                         <td>{{ $novel->name }}</td>
+                                        <td>{{ $novel->author }}</td>
                                         <td><img src="{{ asset('public/uploads/novel/'.$novel->image) }}" height="200" width="200" alt=""></td>
                                         <td>{{ $novel->slug_novel }}</td>
-                                       
+
                                         <td>{{ $novel->category->name }}</td>
                                         <td>
                                             @if ($novel->status == 0)
