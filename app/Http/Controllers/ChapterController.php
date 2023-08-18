@@ -106,8 +106,8 @@ class ChapterController extends Controller
     {
         $data = $request->validate(
             [
-                'title' => 'required|unique:chapter|max:255',
-                'slug_chapter' => 'required|unique:chapter|max:255',
+                'title' => 'required|max:255',
+                'slug_chapter' => 'required|max:255',
                 'describe' => 'required',
                 'status' => 'required',
                 'content' => 'required',
@@ -115,8 +115,6 @@ class ChapterController extends Controller
             ],
             [
                 // Sửa lại thông báo validate
-                'title.unique' => 'Tên truyện đã tồn tại',
-                'slug_chapter.unique' => 'Slug truyện đã tồn tại',
                 'title.required' => 'Bạn phải điền tên truyện',
                 'slug_chapter.required' => 'Bạn phải điền slug_truyện',
                 'describe.required' => 'Bạn phải điền mô tả truyện',

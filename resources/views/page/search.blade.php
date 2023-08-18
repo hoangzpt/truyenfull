@@ -8,10 +8,10 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ url('/') }}">Trang chủ</a></li>
-            <li class="breadcrumb-item active" aria-current="page">{{ $category_id->name }}</li>
+            <li class="breadcrumb-item active" aria-current="page"> Tìm kiếm </li>
         </ol>
     </nav>
-    <h3> Danh sách truyện {{ lcfirst($category_id->name) }}</h3>
+    <h3> Danh sách truyện với từ khóa {{ $search }}</h3>
     <div class="album py-5 bg-light">
         <div class="container">
 

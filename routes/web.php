@@ -22,6 +22,7 @@ Route::get('/', [IndexController::class, 'home']);
 Route::get('/read/{id}', [IndexController::class, 'read'])->name('read');
 Route::get('/novel-category/{slug}', [IndexController::class, 'novel_category'])->name('novel-category');
 Route::get('/read-chapter/{slug}', [IndexController::class, 'read_chapter'])->name('read-chapter');
+Route::get('/search', [IndexController::class, 'search'])->name('search');
 
 
 Auth::routes();

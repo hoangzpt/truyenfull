@@ -43,7 +43,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Mô tả truyện</label>
-                                <textarea name="describe" class="form-control" rows="5" style="resize: none;"></textarea>
+                                <textarea id="describe_novel" name="describe" class="form-control" rows="5" style="resize: none;"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Danh mục truyện</label>

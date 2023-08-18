@@ -80,13 +80,20 @@
         </main>
     </div>
 
+    <script src="//cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+
     <script type="text/javascript">
- 
+        CKEDITOR.replace('content_chapter');
+        CKEDITOR.replace('describe_novel');
+    </script>
+
+    <script type="text/javascript">
+
         function ChangeToSlug()
             {
                 var slug;
-             
-                //Lấy text từ thẻ input title 
+
+                //Lấy text từ thẻ input title
                 slug = document.getElementById("slug").value;
                 slug = slug.toLowerCase();
                 //Đổi ký tự có dấu thành không dấu
@@ -113,10 +120,10 @@
                     //In slug ra textbox có id “slug”
                 document.getElementById('convert_slug').value = slug;
             }
-             
-    
-       
-       
+
+
+
+
     </script>
 </body>
 </html>

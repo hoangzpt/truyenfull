@@ -43,7 +43,7 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nội dung chương</label>
-                                <textarea name="content" value="" class="form-control" rows="5" style="resize: none;">{{ $chapter->content }}</textarea>
+                                <textarea id="content_chapter" name="content" value="" class="form-control" rows="5" style="resize: none;">{{ $chapter->content }}</textarea>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Thuộc truyện</label>

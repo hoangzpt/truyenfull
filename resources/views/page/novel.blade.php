@@ -3,9 +3,9 @@
 @section('content')
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Library</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Data</li>
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ url('/') }}">Trang chủ</a></li>
+            <li class="breadcrumb-item"><a class="text-decoration-none" href="{{ url('novel-category/' . $novel->category->slug_category) }}">{{ $novel->category->name }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $novel->name }}</li>
         </ol>
     </nav>
     <div class="row">
@@ -40,8 +40,8 @@
 
                 <div class="col-md-12">
                     <h3>Mô tả</h3>
-                    <p>
-                        {{ $novel->describe }}
+                    <p class="text-lg-center lh-lg">
+                        {!! $novel->describe !!}
                     </p>
                 </div>
                 <br>

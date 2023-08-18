@@ -37,6 +37,23 @@ class IndexController extends Controller
         $novel = Chapter::where('slug_chapter', $slug)->first();
         $chapter = Chapter::with('novel')->where('slug_chapter', $slug)->where('novel_id', $novel->novel_id)->first();
         $allChapter = Chapter::with('novel')->where('novel_id', $novel->novel_id)->orderBy('id', 'ASC')->get();
-        return view('page.chapter')->with(compact('categories', 'chapter', 'allChapter'));
+        $nextChapter = Chapter::where('novel_id', $novel->novel_id)->where('id', '>', $chapter->id)->min('slug_chapter');
+        $previousChapter = Chapter::where('novel_id', $novel->novel_id)->where('id', '<', $chapter->id)->max('slug_chapter');
+        $maxId = Chapter::where('novel_id', $novel->novel_id)->orderBy('id', 'DESC')->first();
+        $minId = Chapter::where('novel_id', $novel->novel_id)->orderBy('id', 'ASC')->first();
+
+        //Breadcrum
+        $novel_Breadcrum = Novel::with('category')->where('id', $novel->novel_id)->first();
+        //End BreadCrum
+        return view('page.chapter')->with(compact('categories', 'chapter', 'allChapter', 'nextChapter', 'previousChapter', 'maxId', 'minId', 'novel_Breadcrum'));
+    }
+
+    public function search(Request $request) {
+        $categories = Category::orderBy('id', 'DESC')->get();
+
+        $search = $_GET['search'];
+        $novels = Novel::with('category')->where('name', 'LIKE', '%' . $search . '%')
+            ->orWhere('author', 'LIKE', '%' . $search . '%')->get();
+        return view('page.search')->with(compact('categories', 'novels', 'search'));
     }
 }
